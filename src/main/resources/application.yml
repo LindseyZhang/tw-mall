@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: tw-mall
+  cloud:
+    consul:
+      enabled: true
+      host: ${CONSUL_HOST:127.0.0.1}
+      port: 8500
+
