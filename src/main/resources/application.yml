@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: tw-mall
@@ -6,4 +7,16 @@ spring:
       enabled: true
       host: ${CONSUL_HOST:127.0.0.1}
       port: 8500
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database: mysql
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tw_mall
+    username: root
+    password:
+server:
+  port: 8081
 
