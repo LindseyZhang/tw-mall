@@ -16,7 +16,7 @@
   </module>
 
   <!-- Tab characters are not allowed in source files. -->
-  <module name="FileTabCharacter" />
+  <!--<module name="FileTabCharacter" />-->
 
   <module name="RegexpSingleline">
     <!-- Checks that FIXME is not used in comments.  TODO is preferred. -->
