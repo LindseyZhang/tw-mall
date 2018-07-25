@@ -1,5 +1,8 @@
 package com.thoughworks.twmall.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +17,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "tw_cart")
+@Getter
+@Setter
 public class Cart {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,28 +30,4 @@ public class Cart {
   @JoinColumn(name = "cart_id")
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   private List<CartItem> cartItems = new ArrayList<>();
-
-  public long getId() {
-    return id;
-  }
-
-  public double getTotalPrice() {
-    return totalPrice;
-  }
-
-  public List<CartItem> getCartItems() {
-    return cartItems;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public void setTotalPrice(double totalPrice) {
-    this.totalPrice = totalPrice;
-  }
-
-  public void setCartItems(List<CartItem> cartItems) {
-    this.cartItems = cartItems;
-  }
 }
