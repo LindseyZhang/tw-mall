@@ -25,7 +25,9 @@ public class CartController {
   }
 
   @GetMapping("/carts/query")
-  public List<Cart> all(@RequestParam(value = "price", defaultValue = "10") double price) {
-    return cartRepository.queryCartByTotalPriceAbove(price);
+  public List<Cart> all(@RequestParam(value = "price", defaultValue = "10") double price,
+                        @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                        @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+    return cartRepository.queryCartByTotalPriceAbove(price, new PageRequest(pageNum - 1, pageSize));
   }
 }
