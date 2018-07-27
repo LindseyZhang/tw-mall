@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -23,8 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   private JwtUserDetailService jwtUserDetailService;
 
-//  @Autowired
-//  private JwtAuthenticationFilter jwtAuthenticationFilter;
+  @Autowired
+  private JwtAuthenticationFilter jwtAuthenticationFilter;
 
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,6 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       .antMatchers("/hello", "/login").permitAll()
       .anyRequest().authenticated();
 
-//    http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
   }
 }
