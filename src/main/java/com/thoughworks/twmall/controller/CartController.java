@@ -20,7 +20,8 @@ public class CartController {
   }
 
   @GetMapping("/carts")
-  public List<Cart> all(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+  public List<Cart> all(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                        @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
     return cartRepository.findAll(new PageRequest(pageNum - 1, pageSize)).getContent();
   }
 

@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class JwtAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
   @Override
-  public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+  public void onAuthenticationSuccess(HttpServletRequest request,
+                                      HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
   }
 }
